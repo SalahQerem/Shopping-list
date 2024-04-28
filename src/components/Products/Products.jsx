@@ -10,7 +10,7 @@ const Products = ({ cartProducts, dispatchCart }) => {
   let [products, dispatchProducts] = useReducer(productsReducer, []);
   let [isLoading, setIsLoading] = useState(false);
 
-  const handleAddProducts = (product) => {
+  const handleAddProduct = (product) => {
     if (cartProducts.find((item) => item.id === product.id)) {
       CustomWarningAlert("This Product has already been added");
       return;
@@ -24,7 +24,7 @@ const Products = ({ cartProducts, dispatchCart }) => {
 
   const renderProducts = products?.map((product) => (
     <Grid key={product.id} item xs={3}>
-      <Product product={product} handleAddProducts={handleAddProducts} />
+      <Product product={product} handleAddProduct={handleAddProduct} />
     </Grid>
   ));
 

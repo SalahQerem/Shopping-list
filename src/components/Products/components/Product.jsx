@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { txtSlicer } from "../../utils/functions.js";
 
-const Product = ({ product, handleAddProducts }) => {
+const Product = ({ product, handleAddProduct }) => {
   const { title, description, images, price } = product;
 
   return (
@@ -36,7 +36,7 @@ const Product = ({ product, handleAddProducts }) => {
           size="medium"
           variant="contained"
           onClick={() => {
-            handleAddProducts(product);
+            handleAddProduct(product);
           }}
         >
           Add to Cart

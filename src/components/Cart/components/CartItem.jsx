@@ -1,8 +1,8 @@
 import { Box, Button, ListItem, Typography } from "@mui/material";
 import React from "react";
 
-const CartItem = ({ product }) => {
-  const { title, price, images } = product;
+const CartItem = ({ product, handleDeleteProduct }) => {
+  const { id, title, price, images } = product;
   return (
     <ListItem>
       <Box
@@ -31,7 +31,11 @@ const CartItem = ({ product }) => {
             <Typography variant="h6" color="text.primary" component="div">
               ${price}
             </Typography>
-            <Button size="small" variant="contained">
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => handleDeleteProduct(id)}
+            >
               remove
             </Button>
           </Box>
