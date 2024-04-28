@@ -9,7 +9,7 @@ import {
 import { Menu } from "lucide-react";
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ toggleCartDrawer }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -26,6 +26,9 @@ const Navbar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Products
           </Typography>
+          <Button color="inherit" onClick={toggleCartDrawer(true)}>
+            My Cart
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

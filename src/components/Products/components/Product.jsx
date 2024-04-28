@@ -7,15 +7,15 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { txtSlicer } from "../utils/functions.js";
+import { txtSlicer } from "../../utils/functions.js";
 
-const Product = ({ product }) => {
+const Product = ({ product, handleAddProducts }) => {
   const { title, description, images, price } = product;
-  console.log(product);
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia sx={{ height: 250 }} image={images[0]} title={title} />
-      <CardContent>
+      <CardContent sx={{ paddingBlockEnd: 0 }}>
         <Typography gutterBottom variant="h6" component="div">
           {title}
         </Typography>
@@ -32,8 +32,15 @@ const Product = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button
+          size="medium"
+          variant="contained"
+          onClick={() => {
+            handleAddProducts(product);
+          }}
+        >
+          Add to Cart
+        </Button>
       </CardActions>
     </Card>
   );

@@ -1,17 +1,30 @@
+import { Grid } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useReducer, useState } from "react";
 import Loader from "../Loader";
-import { productsReducer } from "./productsReducer.js";
-import Product from "../Product/Product.jsx";
-import { Grid } from "@mui/material";
+import { CustomSuccessAlert, CustomWarningAlert } from "../utils/functions.js";
+import { productsReducer } from "./Reducer/productsReducer.js";
+import Product from "./components/Product.jsx";
 
-const Products = () => {
-  let [products, dispatch] = useReducer(productsReducer, []);
+const Products = ({ cartProducts, dispatchCart }) => {
+  let [products, dispatchProducts] = useReducer(productsReducer, []);
   let [isLoading, setIsLoading] = useState(false);
+
+  const handleAddProducts = (product) => {
+    if (cartProducts.find((item) => item.id === product.id)) {
+      CustomWarningAlert("This Product has already been added");
+      return;
+    }
+    dispatchCart({
+      type: "add",
+      product,
+    });
+    CustomSuccessAlert("This Product has been added");
+  };
 
   const renderProducts = products?.map((product) => (
     <Grid key={product.id} item xs={3}>
-      <Product product={product} />
+      <Product product={product} handleAddProducts={handleAddProducts} />
     </Grid>
   ));
 
@@ -21,7 +34,7 @@ const Products = () => {
       const { data } = await axios.get(
         "https://api.escuelajs.co/api/v1/products"
       );
-      dispatch({ type: "set", products: data.slice(1, 20) });
+      dispatchProducts({ type: "set", products: data.slice(0, 48) });
       setIsLoading(false);
     };
     fetchProducts();
@@ -29,7 +42,7 @@ const Products = () => {
 
   if (isLoading) return <Loader />;
   return (
-    <Grid container spacing={2} width={"80%"} sx={{ margin: "1rem auto" }}>
+    <Grid container spacing={4} width={"80%"} sx={{ margin: "1rem auto" }}>
       {renderProducts}
     </Grid>
   );
