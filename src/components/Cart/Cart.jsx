@@ -1,15 +1,27 @@
-import { Box, Divider, Drawer, List, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, Typography } from "@mui/material";
 import React from "react";
-import CartItem from "./components/CartItem.jsx";
 import { CustomSuccessAlert } from "../utils/functions.js";
+import CartItem from "./components/CartItem.jsx";
 
-const Cart = ({ cartProducts, dispatchCart, toggleCartDrawer, cartOpen }) => {
+const Cart = ({
+  cartProducts,
+  dispatchCart,
+  cartOpen,
+  toggleCartDrawer,
+  setCartOpen,
+  setCheckoutFormOpen,
+}) => {
   const handleDeleteProduct = (productId) => {
     dispatchCart({
       type: "delete",
       productId,
     });
     CustomSuccessAlert("This Product has been deleted");
+  };
+
+  const handleCheckout = () => {
+    setCartOpen(false);
+    setCheckoutFormOpen(true);
   };
 
   const totalPrice = cartProducts.reduce(
@@ -36,14 +48,30 @@ const Cart = ({ cartProducts, dispatchCart, toggleCartDrawer, cartOpen }) => {
             width: 520,
             backgroundColor: "white",
             padding: "16px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
             borderBlockStart: "1px solid",
           }}
         >
-          <Typography variant="h6">Total Price:</Typography>
-          <Typography variant="h6">${totalPrice}</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography variant="h6">Total Price:</Typography>
+            <Typography variant="h6">${totalPrice}</Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "end",
+              mt: 1,
+            }}
+          >
+            <Button variant="contained" onClick={handleCheckout}>
+              Checkout
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Drawer>
