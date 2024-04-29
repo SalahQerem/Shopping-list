@@ -14,10 +14,10 @@ const Product = ({ product, handleAddProduct }) => {
   const { title, description, images, price } = product;
 
   return (
-    <Card sx={{ maxWidth: 345, height: 470 }}>
+    <Card sx={{ maxWidth: 345, height: 500 }}>
       <CardMedia sx={{ height: 250 }} image={images[0]} title={title} />
       <Stack
-        height={220}
+        height={250}
         justifyContent={"space-between"}
         boxSizing={"border-box"}
       >

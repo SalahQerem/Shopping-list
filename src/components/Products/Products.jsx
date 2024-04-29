@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import { fakeProducts } from "../utils/data.js";
+import { products } from "../utils/data.js";
 import { CustomSuccessAlert, CustomWarningAlert } from "../utils/functions.js";
 import Product from "./components/Product.jsx";
 
@@ -17,7 +17,7 @@ const Products = ({ cartProducts, dispatchCart }) => {
     CustomSuccessAlert("This Product has been added");
   };
 
-  const renderProducts = fakeProducts?.map((product) => (
+  const renderProducts = products?.map((product) => (
     <Grid key={product.id} item xs={3}>
       <Product product={product} handleAddProduct={handleAddProduct} />
     </Grid>
