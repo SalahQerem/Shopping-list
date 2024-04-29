@@ -12,7 +12,6 @@ A shopping list web app that allows users to conveniently create, organize, and 
 In this project, I've used the following libraries:
 
 - **mui/material**: Material UI components for rich UI design. [mui/material](https://mui.com/)
-- **axios**: Promise-based HTTP client for browser and Node.js. [axios](https://github.com/axios/axios)
 - **react-toastify**: Easy toast notifications for React applications. [react-toastify](https://fkhadra.github.io/react-toastify/)
 - **react-lucid**: A set of clear and elegant React icons for building visually appealing interfaces. [react-lucid](https://www.npmjs.com/package/react-lucid)
 
