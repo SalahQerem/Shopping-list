@@ -26,5 +26,7 @@ Please refer to the documentation of each library for more information on how to
 ## Snapshots
 
 <img src="./src/assets/home-snapshot.png" alt="home page"/>
+<br/>
 <img src="./src/assets/cart-snapshot.png" alt="home page"/>
+<br/>
 <img src="./src/assets/checkout-snapshot.png" alt="home page"/>
