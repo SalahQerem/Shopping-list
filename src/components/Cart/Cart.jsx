@@ -8,8 +8,7 @@ const Cart = ({
   dispatchCart,
   cartOpen,
   toggleCartDrawer,
-  setCartOpen,
-  setCheckoutFormOpen,
+  toggleCheckoutFormDrawer,
 }) => {
   const handleDeleteProduct = (productId) => {
     dispatchCart({
@@ -20,8 +19,8 @@ const Cart = ({
   };
 
   const handleCheckout = () => {
-    setCartOpen(false);
-    setCheckoutFormOpen(true);
+    toggleCartDrawer(false);
+    toggleCheckoutFormDrawer(true);
   };
 
   const totalPrice = cartProducts.reduce(
@@ -37,18 +36,21 @@ const Cart = ({
     />
   ));
   return (
-    <Drawer anchor="right" open={cartOpen} onClose={toggleCartDrawer(false)}>
+    <Drawer
+      anchor="right"
+      open={cartOpen}
+      onClose={() => toggleCartDrawer(false)}
+    >
       <Box sx={{ width: 520 }} role="presentation">
-        <List>{renderCartProducts}</List>
+        <List sx={{ height: "calc(100vh - 126px)", overflow: "auto" }}>
+          {renderCartProducts}
+        </List>
         <Box
           sx={{
-            position: "fixed",
-            bottom: 0,
-            right: 0,
-            width: 520,
             backgroundColor: "white",
             padding: "16px",
             borderBlockStart: "1px solid",
+            zIndex: 1000,
           }}
         >
           <Box

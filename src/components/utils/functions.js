@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export function txtSlicer(txt, max = 150) {
+export function txtSlicer(txt, max = 120) {
   if (txt.length >= max) return `${txt.slice(0, max)}...`;
   return txt;
 }

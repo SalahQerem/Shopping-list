@@ -6,7 +6,7 @@ const CheckoutForm = ({ checkoutFormOpen, toggleCheckoutFormDrawer }) => {
     <Drawer
       anchor="right"
       open={checkoutFormOpen}
-      onClose={toggleCheckoutFormDrawer(false)}
+      onClose={() => toggleCheckoutFormDrawer(false)}
     >
       <Box
         sx={{
@@ -51,7 +51,7 @@ const CheckoutForm = ({ checkoutFormOpen, toggleCheckoutFormDrawer }) => {
             />
             <Button
               variant="contained"
-              onClick={toggleCheckoutFormDrawer(false)}
+              onClick={() => toggleCheckoutFormDrawer(false)}
             >
               Confirm
             </Button>

@@ -26,7 +26,7 @@ const Navbar = ({ toggleCartDrawer }) => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Products
           </Typography>
-          <Button color="inherit" onClick={toggleCartDrawer(true)}>
+          <Button color="inherit" onClick={() => toggleCartDrawer(true)}>
             My Cart
           </Button>
         </Toolbar>

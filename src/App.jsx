@@ -12,11 +12,11 @@ function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutFormOpen, setCheckoutFormOpen] = useState(false);
 
-  const toggleCartDrawer = (newOpen) => () => {
+  const toggleCartDrawer = (newOpen) => {
     setCartOpen(newOpen);
   };
 
-  const toggleCheckoutFormDrawer = (newOpen) => () => {
+  const toggleCheckoutFormDrawer = (newOpen) => {
     setCheckoutFormOpen(newOpen);
   };
 
@@ -30,8 +30,6 @@ function App() {
         cartOpen={cartOpen}
         toggleCartDrawer={toggleCartDrawer}
         toggleCheckoutFormDrawer={toggleCheckoutFormDrawer}
-        setCartOpen={setCartOpen}
-        setCheckoutFormOpen={setCheckoutFormOpen}
       />
       <CheckoutForm
         checkoutFormOpen={checkoutFormOpen}
