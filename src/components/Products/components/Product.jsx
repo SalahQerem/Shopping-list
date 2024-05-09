@@ -37,7 +37,7 @@ const Product = ({ product, handleAddProduct }) => {
             ${price}
           </Typography>
         </CardContent>
-        <CardActions sx={{}}>
+        <CardActions>
           <Button
             size="medium"
             variant="contained"
