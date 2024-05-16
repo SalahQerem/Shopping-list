@@ -1,14 +1,14 @@
 import { useReducer, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cart from "./components/Cart";
-import { cartReducer } from "./components/Cart/Reducer/cartReducer.js";
+import { CartReducer } from "./Reducers/CartReducer.js";
 import CheckoutForm from "./components/CheckoutForm";
 import Navbar from "./components/Navbar";
-import Products from "./components/Products";
+import Products from "./pages/Products";
+import CartDrawer from "./Drawers/CartDrawer";
 
 function App() {
-  let [cartProducts, dispatchCart] = useReducer(cartReducer, []);
+  let [cartProducts, dispatchCart] = useReducer(CartReducer, []);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutFormOpen, setCheckoutFormOpen] = useState(false);
 
@@ -24,7 +24,7 @@ function App() {
     <>
       <Navbar toggleCartDrawer={toggleCartDrawer} />
       <Products cartProducts={cartProducts} dispatchCart={dispatchCart} />
-      <Cart
+      <CartDrawer
         cartProducts={cartProducts}
         dispatchCart={dispatchCart}
         cartOpen={cartOpen}

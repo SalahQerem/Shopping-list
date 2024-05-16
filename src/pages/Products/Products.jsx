@@ -1,7 +1,10 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import { products } from "../utils/data.js";
-import { CustomSuccessAlert, CustomWarningAlert } from "../utils/functions.js";
+import { products } from "../../utils/data.js";
+import {
+  CustomSuccessAlert,
+  CustomWarningAlert,
+} from "../../utils/functions.js";
 import Product from "./components/Product.jsx";
 
 const Products = ({ cartProducts, dispatchCart }) => {
@@ -18,7 +21,7 @@ const Products = ({ cartProducts, dispatchCart }) => {
   };
 
   const renderProducts = products?.map((product) => (
-    <Grid key={product.id} item xs={3}>
+    <Grid key={product.id} item xs={12} sm={6} lg={4} xl={3}>
       <Product product={product} handleAddProduct={handleAddProduct} />
     </Grid>
   ));

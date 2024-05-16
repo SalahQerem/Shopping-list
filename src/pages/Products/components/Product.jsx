@@ -8,19 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { txtSlicer } from "../../utils/functions.js";
+import { txtSlicer } from "../../../utils/functions.js";
 
 const Product = ({ product, handleAddProduct }) => {
   const { title, description, images, price } = product;
 
   return (
-    <Card sx={{ maxWidth: 345, height: 500 }}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardMedia sx={{ height: 250 }} image={images[0]} title={title} />
-      <Stack
-        height={250}
-        justifyContent={"space-between"}
-        boxSizing={"border-box"}
-      >
+      <Stack justifyContent={"space-between"} boxSizing={"border-box"}>
         <CardContent sx={{ paddingBlockEnd: 0 }}>
           <Typography gutterBottom variant="h6" component="div">
             {title}

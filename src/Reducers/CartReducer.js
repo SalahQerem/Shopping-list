@@ -1,4 +1,4 @@
-export const cartReducer = (cartProducts, action) => {
+export const CartReducer = (cartProducts, action) => {
   switch (action.type) {
     case "add": {
       return [...cartProducts, action.product];

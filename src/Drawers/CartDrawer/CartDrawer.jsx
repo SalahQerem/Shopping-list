@@ -1,7 +1,7 @@
 import { Box, Button, Drawer, List, Typography } from "@mui/material";
 import React from "react";
-import { CustomSuccessAlert } from "../utils/functions.js";
-import CartItem from "./components/CartItem.jsx";
+import { CustomSuccessAlert } from "../../utils/functions.js";
+import CartItem from "./components/CartItem";
 
 const Cart = ({
   cartProducts,
